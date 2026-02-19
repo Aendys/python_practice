@@ -15,11 +15,14 @@ def square(calc_type):
     if calc_type == "1":
         perimeter = round((4 * a), 2)
         print(f"Perimeter of the square is {perimeter}")
+        return perimeter
     elif calc_type == "2":
         area = round(a * a, 2)
         print(f"Area of the square is {area}")
+        return area
     else:
         print("Invalid input.")
+        return None
 
 
 def triangle(calc_type):
@@ -71,9 +74,10 @@ def result():
     else:
         print("Invalid input.")
 
-result()
-
-i = input("Do you wish to continue? (y/n): ")
-while i == "y":
+if __name__ == "__main__":
     result()
+
     i = input("Do you wish to continue? (y/n): ")
+    while i == "y":
+        result()
+        i = input("Do you wish to continue? (y/n): ")
