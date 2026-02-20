@@ -11,13 +11,13 @@ def input_data():
 def calculate(calc_object, calc_type):
     if calc_type == "perimeter" and calc_object == "square":
         a = float(input("Enter value for side a: "))
-        perimeter = round (4 * a), 2
+        perimeter = round (4 * a),2
         print(f"The {calc_type} of {calc_object} is {perimeter}")
         return None
 
     elif calc_type == "perimeter" and calc_object == "triangle":
         a, b, c = map(float, input("Enter values for sides a, b, c. Split the numbers with comma: ").split(","))
-        perimeter = round(a + b + c), 2
+        perimeter = round(a + b + c),2
         print(f"The {calc_type} of {calc_object} is {perimeter}")
         return None
 

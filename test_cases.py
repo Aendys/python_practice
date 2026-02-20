@@ -1,4 +1,5 @@
 import pytest
+
 from quadratic_equation_function import quadratic_calculation
 from geometry_function2 import square, circle, triangle, rectangle
 
@@ -24,6 +25,42 @@ class TestQuadraticFunction:
 
 
 class TestGeometryFunction:
-    def test_square(self):
-        perimeter_square = square (1)
-        assert perimeter_square == 20
+    def test_square_perimeter(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5") # Mocking the input for side a with value 5
+        perimeter = square("1")
+        assert perimeter == 20
+
+    def test_square_area(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5")
+        area = square("2")
+        assert area == 25
+
+    def test_triangle_perimeter(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
+        perimeter = triangle("1")
+        assert perimeter == 12
+
+    def test_triangle_area(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
+        area = triangle("2")
+        assert area == 15
+
+    def test_circle_perimeter(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "22.5")
+        perimeter = circle("1")
+        assert perimeter == 141.37
+
+    def test_circle_area(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "22.5")
+        area = circle("2")
+        assert area == 1590.43
+
+    def test_rectangle_perimeter(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "7,8")
+        perimeter = rectangle("1")
+        assert perimeter == 30
+
+    def test_rectangle_area(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "7,8")
+        area = rectangle("2")
+        assert area == 56

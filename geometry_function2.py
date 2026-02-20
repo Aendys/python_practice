@@ -30,11 +30,14 @@ def triangle(calc_type):
     if calc_type == "1":
         perimeter = round(a + b + c, 2)
         print(f"Perimeter of the triangle is {perimeter}")
+        return perimeter
     elif calc_type == "2":
         area = round((a * h) / 2, 2)
         print(f"Area of the triangle is {area}")
+        return area
     else:
         print("Invalid input.")
+        return None
 
 
 def circle(calc_type):
@@ -42,11 +45,14 @@ def circle(calc_type):
     if calc_type == "1":
         perimeter = round(2 * math.pi * r, 2)
         print(f"Perimeter of the circle is {perimeter}")
+        return perimeter
     elif calc_type == "2":
         area = round(math.pi * r * r, 2)
         print(f"Area of the circle is {area}")
+        return area
     else:
         print("Invalid input.")
+        return None
 
 
 def rectangle(calc_type):
@@ -54,11 +60,14 @@ def rectangle(calc_type):
     if calc_type == "1":
         perimeter = round(2 * (a + b), 2)
         print(f"Perimeter of the rectangle is {perimeter}")
+        return perimeter
     elif calc_type == "2":
         area = round(a * b, 2)
         print(f"Area of the rectangle is {area}")
+        return area
     else:
         print("Invalid input.")
+        return None
 
 
 def result():
