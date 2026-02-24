@@ -1,5 +1,4 @@
 import pytest
-
 from quadratic_equation_function import quadratic_calculation
 from geometry_function2 import square, circle, triangle, rectangle
 
@@ -24,6 +23,8 @@ class TestQuadraticFunction:
             raise ZeroDivisionError("Cannot be divided by zero")
 
 
+
+
 class TestGeometryFunction:
     def test_square_perimeter(self, monkeypatch):
         monkeypatch.setattr('builtins.input', lambda _: "5") # Mocking the input for side a with value 5
@@ -35,6 +36,12 @@ class TestGeometryFunction:
         area = square("2")
         assert area == 25
 
+    def test_square_invalid_input(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5")
+        square("fadfa")
+        with pytest.raises(ValueError):
+            raise ValueError("Invalid input")
+
     def test_triangle_perimeter(self, monkeypatch):
         monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
         perimeter = triangle("1")
@@ -44,6 +51,12 @@ class TestGeometryFunction:
         monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
         area = triangle("2")
         assert area == 15
+
+    def test_triangle_invalid_input(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
+        triangle("fadfa")
+        with pytest.raises(ValueError):
+            raise ValueError("Invalid input")
 
     def test_circle_perimeter(self, monkeypatch):
         monkeypatch.setattr('builtins.input', lambda _: "22.5")
@@ -55,6 +68,12 @@ class TestGeometryFunction:
         area = circle("2")
         assert area == 1590.43
 
+    def test_circle_invalid_input(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "22.5")
+        circle("fadfa")
+        with pytest.raises(ValueError):
+            raise ValueError("Invalid input")
+
     def test_rectangle_perimeter(self, monkeypatch):
         monkeypatch.setattr('builtins.input', lambda _: "7,8")
         perimeter = rectangle("1")
@@ -64,3 +83,9 @@ class TestGeometryFunction:
         monkeypatch.setattr('builtins.input', lambda _: "7,8")
         area = rectangle("2")
         assert area == 56
+
+    def test_rectangle_invalid_input(self, monkeypatch):
+        monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
+        rectangle("fadfa")
+        with pytest.raises(ValueError):
+            raise ValueError("Invalid input")
