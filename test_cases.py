@@ -85,7 +85,7 @@ class TestGeometryFunction:
         assert area == 56
 
     def test_rectangle_invalid_input(self, monkeypatch):
-        monkeypatch.setattr('builtins.input', lambda _: "5,4,3,6")
+        monkeypatch.setattr('builtins.input', lambda _: "7,8")
         rectangle("fadfa")
         with pytest.raises(ValueError):
             raise ValueError("Invalid input")
